@@ -62,15 +62,17 @@ button {
   padding: 0;
   margin: 0;
 }
+
 #buttons {
   gap: 0.2em;
   padding: 0 1.5em;
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
 }
 #buttons button {
   padding: 0.25em 1em;
   font-size: 9px;
   letter-spacing: 0.1em;
+  cursor: pointer;
 }
 .test {
   background: black;
@@ -95,9 +97,11 @@ button {
 
 .off {
   border: 3px outset;
+  box-shadow: 0 0 3px black;
 }
 .on {
   border: 3px inset;
+  box-shadow: 0 0 3px dimgray inset;
 }
 
 .outer {
