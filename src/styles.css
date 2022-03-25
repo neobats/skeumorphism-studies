@@ -75,17 +75,29 @@ button {
 .test {
   background: black;
   color: rgba(200, 200, 200, 0.5);
+  border: 3px solid black;
+}
+.test:active {
+  --light-square-color: "black";
   border: 3px inset;
 }
 .reset {
-  background: rgb(220, 20, 30);
+  --reset: rgb(220, 20, 30);
+  background: var(--reset);
   color: rgba(200, 200, 200, 0.5);
-  border: 3px outset;
+  border: 3px solid var(--reset);
 }
 .reset:active {
   border-style: inset;
   /* --light-square-color: var(--square-ok); */
   --light-square-color: "green";
+}
+
+.off {
+  border: 3px outset;
+}
+.on {
+  border: 3px inset;
 }
 
 .outer {
@@ -164,8 +176,10 @@ main {
   font-family: Helvetica, Arial, sans-serif;
   background: ghostwhite;
   box-shadow: -1px 1px 8px 7px #203636;
+}
 
-  @media screen and (max-width: 900px) {
+@media screen and (max-width: 900px) {
+  .instructions {
     font-size: 16px;
     padding: 0.5em;
     max-width: 20ch;
@@ -173,7 +187,9 @@ main {
     margin-right: 0;
     margin-left: 10px;
   }
-  @media screen and (max-width: 450px) {
+}
+@media screen and (max-width: 450px) {
+  .instructions {
     position: absolute;
     top: unset;
     right: unset;
@@ -181,5 +197,22 @@ main {
     width: 100%;
     margin: 0;
     margin-top: 1.2em;
+  }
+}
+
+@media screen and (max-height: 676px) {
+  .App {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .instructions {
+    position: initial;
+    top: unset;
+    right: unset;
+    left: unset;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 1.2em;
   }
 }
