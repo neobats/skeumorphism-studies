@@ -209,6 +209,7 @@ main {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
+    width: min-content;
   }
   .instructions {
     position: initial;
