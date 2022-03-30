@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react"
 import "./styles.css"
+import gfci from "./notes/GFCI.md"
 import playingReset from "./assets/audio-that-i-literally-recorded-on-my-mac/resetClick.wav"
 import playingTest from "./assets/audio-that-i-literally-recorded-on-my-mac/testClick.wav"
 import { Buttons, Receptacle } from "./components"
+import { Page } from "./pages/Page"
 
 // finite state machines for stateful aspects
 type LightSquareStates = "off" | "ok" | "err"
@@ -18,6 +20,7 @@ export default function App() {
   const [audioClickState, setAudioClickState] = useState<AudioClickStates>(
     "off"
   )
+  const [notes, setShowNotes] = useState(false)
 
   // HANDLERS
   const handleLightSquareColorChange = (element: HTMLElement) => (
@@ -49,6 +52,13 @@ export default function App() {
     } else {
       setAudioClickState("off")
     }
+  }
+
+  const showNotes = () => {
+    setShowNotes(true)
+  }
+  const hideNotes = () => {
+    setShowNotes(false)
   }
 
   // Effectful stuff
@@ -116,23 +126,35 @@ export default function App() {
 
   return (
     <div className="App">
-      <div className="outer">
-        <hr />
-        <main className="fl-col bg">
-          <Receptacle />
-          <Buttons testHandler={handleTest} resetHandler={handleReset} />
-          <Receptacle lightSquare />
-        </main>
-      </div>
-      <article className="instructions">
-        <h1>Skeumorphism and UX</h1>
-        <p>
-          Make sure you have sound on{" "}
-          <span role="img" aria-label="smile">
-            🙂
-          </span>
-        </p>
-      </article>
+      {!notes && (
+        <>
+          <div className="outer">
+            <hr />
+
+            <main className="fl-col bg">
+              <Receptacle />
+              <Buttons testHandler={handleTest} resetHandler={handleReset} />
+              <Receptacle lightSquare />
+            </main>
+          </div>
+          <article className="instructions">
+            <h1>Skeumorphism and UX</h1>
+            <p>
+              Make sure you have sound on{" "}
+              <span role="img" aria-label="smile">
+                🙂
+              </span>
+            </p>
+          </article>
+          <article className="instructions bottom">
+            <p> Checkout the notes for this </p>
+            <button onClick={showNotes} className="btn">
+              Show Notes
+            </button>
+          </article>
+        </>
+      )}
+      {notes && <Page source={gfci} closePage={hideNotes} />}
       <audio
         src={playingReset}
         preload="auto"

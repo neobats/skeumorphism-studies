@@ -1,0 +1,18 @@
+.page {
+  font-size: 18px;
+  font-family: "Inter", Helvetica, Arial, sans-serif;
+  background: ghostwhite;
+  padding: 2em;
+  border-radius: 6px;
+  max-width: min(65ch, 100%);
+}
+
+.page h1 {
+  font-size: 3rem;
+}
+
+@media all and (max-width: 600px) {
+  .page {
+    font-size: 16px;
+  }
+}
