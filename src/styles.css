@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 .receptacle {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -61,6 +62,7 @@ button {
   background: none;
   padding: 0;
   margin: 0;
+  cursor: pointer;
 }
 
 #buttons {
@@ -72,7 +74,6 @@ button {
   padding: 0.25em 1em;
   font-size: 9px;
   letter-spacing: 0.1em;
-  cursor: pointer;
 }
 .test {
   background: black;
@@ -169,6 +170,31 @@ main {
 .upside-down {
   transform: rotate(180deg);
 }
+.btn {
+  color: ghostwhite;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  background: darkolivegreen;
+  box-shadow: -1px 1px 3px 1px gray;
+}
+.btn:hover {
+  transition: 0.2s;
+  background: rgb(46, 145, 46);
+}
+@keyframes pressButton {
+  0% {
+    box-shadow: -1px 1px 3px 1px gray;
+  }
+  50% {
+    box-shadow: 0px 0px 0px 0px rgb(46, 145, 46);
+  }
+  100% {
+    box-shadow: 1px -1px 6px 2px darkgreen inset;
+  }
+}
+.btn:active {
+  animation: pressButton 0.1s linear forwards;
+}
 /* instructions */
 .instructions {
   position: fixed;
@@ -177,9 +203,15 @@ main {
   margin-top: 10px;
   margin-right: 16px;
   padding: 1em;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Inter", Helvetica, Arial, sans-serif;
   background: ghostwhite;
   box-shadow: -1px 1px 8px 7px #203636;
+  border-radius: 6px;
+}
+.bottom {
+  top: unset;
+  bottom: 0%;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 900px) {
@@ -194,7 +226,7 @@ main {
 }
 @media screen and (max-width: 450px) {
   .instructions {
-    position: absolute;
+    position: initial;
     top: unset;
     right: unset;
     left: unset;
@@ -204,11 +236,12 @@ main {
   }
 }
 
-@media screen and (max-height: 676px) {
+@media screen and (max-height: 690px) {
   .App {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
+    width: min-content;
   }
   .instructions {
     position: initial;
