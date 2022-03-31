@@ -81,25 +81,6 @@ export default function App() {
     }
   }, [tripped])
 
-  // Setting the Square Color
-  useEffect(() => {
-    const root = document.documentElement
-    if (!root) {
-      return
-    }
-    const setSquareColor = handleLightSquareColorChange(root)
-    if (tripped) {
-      setSquareColor("off")
-      return
-    }
-    if (error) {
-      setSquareColor("err")
-      return
-    }
-    setSquareColor("ok")
-    return
-  }, [tripped, error])
-
   // Handling the Audio
   useEffect(() => {
     if (audioClickState === "off") {
@@ -119,12 +100,32 @@ export default function App() {
       setAudioClickState("off")
       return
     }
-    audioElement.play().then(() => {
-      setAudioClickState("off")
-    }).catch(err => {
-      console.error(err)
-    })
-  }, [audioClickState])
+    audioElement
+      .play()
+      .then(() => {
+        setAudioClickState("off")
+
+        // Setting the Light Color... After the play starts
+        const root = document.documentElement
+        if (!root) {
+          return
+        }
+        const setSquareColor = handleLightSquareColorChange(root)
+        if (tripped) {
+          setSquareColor("off")
+          return
+        }
+        if (error) {
+          setSquareColor("err")
+          return
+        }
+        setSquareColor("ok")
+      })
+      .catch((err) => {
+        setError(true)
+        console.error(err)
+      })
+  }, [audioClickState, error, tripped])
 
   return (
     <div className="App">
