@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
-import "./styles.css"
-import gfci from "./notes/GFCI.md"
 import playingReset from "./assets/audio-that-i-literally-recorded-on-my-mac/resetClick.wav"
 import playingTest from "./assets/audio-that-i-literally-recorded-on-my-mac/testClick.wav"
 import { Buttons, Receptacle } from "./components"
+import gfci from "./notes/GFCI.md"
 import { Page } from "./pages/Page"
+import "./styles.css"
 
 // finite state machines for stateful aspects
 type LightSquareStates = "off" | "ok" | "err"
@@ -121,6 +121,8 @@ export default function App() {
     }
     audioElement.play().then(() => {
       setAudioClickState("off")
+    }).catch(err => {
+      console.error(err)
     })
   }, [audioClickState])
 

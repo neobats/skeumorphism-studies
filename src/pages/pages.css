@@ -5,6 +5,7 @@
   padding: 2em;
   border-radius: 6px;
   max-width: min(65ch, 100%);
+  margin: auto;
 }
 
 .page h1 {

@@ -1,7 +1,7 @@
 import React from "react"
 
 type Props = {
-  resetHandler: (e: React.MouseEvent) => void
+  resetHandler: (e: React.MouseEvent) => void,
   testHandler: (e: React.MouseEvent) => void
 }
 export const Buttons: React.FC<Props> = ({ resetHandler, testHandler }) => (

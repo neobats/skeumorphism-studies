@@ -1,9 +1,9 @@
 import React from "react"
-import "./pages.css"
 import { MarkdownPage } from "../components"
+import "./pages.css"
 
 type Props = {
-  source: string
+  source: string,
   closePage: () => void
 }
 
