@@ -68,15 +68,6 @@ export default function App() {
       document.querySelector("button." + cl) as HTMLButtonElement
     const test = getButton("test")
     const reset = getButton("reset")
-    const buttons: Array<HTMLButtonElement> = [test, reset]
-
-    const turnOnVibrate = () => setIsVibrating(true)
-    const turnOffVibrate = () => setIsVibrating(false)
-    buttons.forEach((element) => {
-      element.addEventListener("mousedown", turnOnVibrate)
-      element.addEventListener("mouseup", turnOffVibrate)
-    })
-
     if (tripped) {
       // will run on initial load, FYI
       test?.classList.add("on")
@@ -89,6 +80,15 @@ export default function App() {
       test?.classList.add("off")
       test?.classList.remove("on")
     }
+
+    const buttons: Array<HTMLButtonElement> = [test, reset]
+
+    const turnOnVibrate = () => setIsVibrating(true)
+    const turnOffVibrate = () => setIsVibrating(false)
+    buttons.forEach((element) => {
+      element.addEventListener("mousedown", turnOnVibrate)
+      element.addEventListener("mouseup", turnOffVibrate)
+    })
 
     return () => {
       buttons.forEach((el) => {
@@ -106,10 +106,10 @@ export default function App() {
     }
     if (!isVibrating) {
       // vibrate() returns false if it fails.
-      setError(!navigator.vibrate(0))
+      navigator.vibrate(0)
     } else {
       // set a vibrate for 10 seconds that should be stopped on mouseup
-      setError(!navigator.vibrate(10000))
+      navigator.vibrate(10000)
     }
   }, [isVibrating])
 

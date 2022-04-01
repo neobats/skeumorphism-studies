@@ -12,7 +12,6 @@ export const MarkdownPage: React.FC<{ markdownSource: string }> = ({
       try {
         const response = await fetch(markdownSource)
         const text = await response.text()
-        console.log(text)
         setMarkdown(text)
       } catch (e) {
         setError(`${e}`)
