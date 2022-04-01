@@ -109,6 +109,7 @@ export default function App() {
       navigator.vibrate(0)
     } else {
       // set a vibrate for 10 seconds that should be stopped on mouseup
+      // doesn't handle intensity. might be a way to do that?
       navigator.vibrate(10000)
     }
   }, [isVibrating])
