@@ -157,7 +157,7 @@ export default function App() {
           </article>
         </>
       )}
-      {notes && <Page source={gfci} closePage={hideNotes} />}
+      {notes && <Page source={gfci} closePage={hideNotes} title="GFCI" />}
       <audio
         src={playingReset}
         preload="auto"
