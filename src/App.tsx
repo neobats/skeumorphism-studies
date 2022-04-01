@@ -21,6 +21,7 @@ export default function App() {
     "off"
   )
   const [notes, setShowNotes] = useState(false)
+  const [isVibrating, setIsVibrating] = useState(false)
 
   // HANDLERS
   const handleLightSquareColorChange = (element: HTMLElement) => (
@@ -63,9 +64,18 @@ export default function App() {
 
   // Effectful stuff
   useEffect(() => {
-    const getButton = (cl: string) => document.querySelector("button." + cl)
+    const getButton = (cl: string) =>
+      document.querySelector("button." + cl) as HTMLButtonElement
     const test = getButton("test")
     const reset = getButton("reset")
+    const buttons: Array<HTMLButtonElement> = [test, reset]
+
+    const turnOnVibrate = () => setIsVibrating(true)
+    const turnOffVibrate = () => setIsVibrating(false)
+    buttons.forEach((element) => {
+      element.addEventListener("mousedown", turnOnVibrate)
+      element.addEventListener("mouseup", turnOffVibrate)
+    })
 
     if (tripped) {
       // will run on initial load, FYI
@@ -79,7 +89,29 @@ export default function App() {
       test?.classList.add("off")
       test?.classList.remove("on")
     }
+
+    return () => {
+      buttons.forEach((el) => {
+        el.removeEventListener("mousedown", turnOnVibrate)
+        el.removeEventListener("mouseup", turnOffVibrate)
+      })
+    }
   }, [tripped])
+
+  useEffect(() => {
+    const navigator = window.navigator
+    if (!navigator || !navigator.vibrate) {
+      // we don't have that mobile support
+      return
+    }
+    if (!isVibrating) {
+      // vibrate() returns false if it fails.
+      setError(!navigator.vibrate(0))
+    } else {
+      // set a vibrate for 10 seconds that should be stopped on mouseup
+      setError(!navigator.vibrate(10000))
+    }
+  }, [isVibrating])
 
   // Handling the Audio
   useEffect(() => {
