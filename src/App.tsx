@@ -100,7 +100,7 @@ export default function App() {
 
   useEffect(() => {
     const navigator = window.navigator
-    if (!navigator || !navigator.vibrate) {
+    if (!("vibrate" in navigator)) {
       // we don't have that mobile support
       return
     }
@@ -181,9 +181,10 @@ export default function App() {
                 🙂
               </span>
             </p>
+            <p>By the way, this works best when not on Safari.</p>
           </article>
           <article className="instructions bottom">
-            <p> Checkout the notes for this </p>
+            <p>Check out the notes for this </p>
             <button onClick={showNotes} className="btn">
               Show Notes
             </button>
