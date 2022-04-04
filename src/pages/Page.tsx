@@ -18,18 +18,22 @@ export const Page: React.FC<Props> = ({ source, closePage, isShowing }) => {
     if (!isShowing) {
       return
     }
-    document.querySelectorAll("h1, h2, h3, h4").forEach((element) => {
-      const ele = element as HTMLHeadingElement // stupid. There's a better way to do this.
+    console.log("this is showing")
+    setTimeout(() => {
+      const nodes = document.querySelectorAll("h1, h2, h3, h4")
+      console.log(nodes)
+      nodes.forEach((element) => {
+        const ele = element as HTMLHeadingElement // stupid. There's a better way to do this.
+        if (ele.tagName === "H1") {
+          title.current = ele.innerText
+        }
 
-      if (ele.tagName === "H1") {
-        title.current = ele.innerText
-      }
-
-      const headingTitle = ele.innerText
-        .replace(/(\s)/g, "-")
-        .replace(/(\W)/gi, "")
-      element.setAttribute("id", headingTitle.toLocaleLowerCase())
-    })
+        const splitTitle = ele.innerText.replace(/(\s)/g, "-")
+        const headingTitle = splitTitle.replace(/(—)/gi, "")
+        console.log("split", splitTitle, "heading", headingTitle)
+        element.setAttribute("id", headingTitle.toLocaleLowerCase())
+      })
+    }, 20)
   }, [isShowing])
   return (
     <article className="page">
