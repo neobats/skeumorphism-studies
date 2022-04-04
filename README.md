@@ -16,10 +16,10 @@ So that's the goal. Here's a list of what to expect throughout the README.
 
 ## 🍽 Table of Contents
 
-- [Completed Studies](#completed-studies)
-- [In-progress Studies](#in-progress-studies)
-- [Tech used](#tech)
-- [Inspiration/further reading](#inspiration)
+- [Completed Studies](#-completed-studies)
+- [In-progress Studies](#-in-progress-studies)
+- [Tech used](#-tech)
+- [Inspiration/further reading](#-inspiration)
 
 ## ✅ Completed Studies
 
@@ -40,7 +40,7 @@ Nothing in progress yet!
 - [TypeScript](https://github.com/microsoft/TypeScript)
 - And good-ol' fashioned CSS
 
-## Inspiration
+## 🌤 Inspiration
 
 Main source of inspiration comes from my fellow designers that I've worked with at [Crema](https://www.crema.us). But I've found
 inspiration from another of other sources. I imagine this list will grow over time, but here are the big mentions.
