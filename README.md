@@ -25,7 +25,8 @@ So that's the goal. Here's a list of what to expect throughout the README.
 
 ### 🔌 GFCI—A Case Study in Feedback
 
-[Read the notes](src/notes/gfci.md)
+[Read the notes](https://github.com/neobats/skeumorphism-studies/blob/main/src/notes/GFCI.md)
+
 [See the demo](https://codesandbox.io/s/github/neobats/skeumorphism-studies/tree/main)
 
 ## 🚧 In-progress Studies
