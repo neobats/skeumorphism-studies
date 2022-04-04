@@ -52,7 +52,7 @@ may have _too much_ feedback, and that can be as big a problem as _not enough_ f
 
 > TL;DR When designing and developing products, consider what information you give to your users. Sensory feedback is crucial for creating realistic experiences, and copy defines the conversation between the user and the system.
 
-[Back to top](#gfci)
+[Back to top](#gfcia-study-in-feedback)
 
 ## Who
 
@@ -101,7 +101,7 @@ UX Writing specialist can be invaluable here too.
 
 > TL;DR Everyone can and should contribute to the **What** of feedback. Having various UX specialists can accent the team and help ensure that every angle is considered. Devs should also practice empathy and pass things they find helpful when debugging.
 
-[Back to top](#gfci)
+[Back to top](#gfcia-study-in-feedback)
 
 ## When
 
@@ -116,7 +116,7 @@ Yet _some_ feedback is usually good. Here's a guideline. Send feedback any time 
 
 > TL;DR Just check the list 😊
 
-[Back to top](#gfci)
+[Back to top](#gfcia-study-in-feedback)
 
 ## Where
 
@@ -133,7 +133,7 @@ the user knows what to do and where they are.
 
 > TL;DR Feedback should live in the interactive elements, in modals, and in places where users should actually see it or experience it. Again, don't forget to use tactile and audio feedback where it makes sense or could improve the experience!
 
-[Back to top](#gfci)
+[Back to top](#gfcia-study-in-feedback)
 
 ## Why
 
