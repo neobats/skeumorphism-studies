@@ -1,4 +1,4 @@
-# 📚 skeumorphism-studies
+# 📚 skeuomorphism-studies
 
 > skeuomorph: an ornament or design representing a utensil or implement
 
