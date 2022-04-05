@@ -174,7 +174,7 @@ export default function App() {
             </main>
           </div>
           <article className="instructions">
-            <h1>Skeumorphism and UX</h1>
+            <h1>Skeuomorphism and UX</h1>
             <p>
               Make sure you have sound on{" "}
               <span role="img" aria-label="smile">
